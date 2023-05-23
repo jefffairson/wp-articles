@@ -22,6 +22,8 @@
             "php": "8.0"
         }
     },
-    "require": {},
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "symfony/var-dumper": "5.4.x-dev"
+    }
 }
