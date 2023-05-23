@@ -1,0 +1,22 @@
+{
+    "name": "jefffairson/wp-articles",
+    "description": "Convert WP_Post to DTO",
+    "license": "LPGL-3.0-only",
+    "type": "library",
+    "homepage": "https://tisseur-de-toile.fr",
+    "autoload": {
+        "psr-4": {
+            "Jefffairson\\WPArticles\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jean-François TOURNOUX",
+            "email": "jft@tisseur-de-toile.fr",
+            "homepage": "https://tisseur-de-toile.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {},
+    "minimum-stability": "dev"
+}
