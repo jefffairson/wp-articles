@@ -9,6 +9,7 @@
             "Jefffairson\\WPArticles\\": "src/"
         }
     },
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Jean-François TOURNOUX",
@@ -19,11 +20,14 @@
     ],
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.1"
         }
     },
     "minimum-stability": "dev",
+    "require": {
+        "spatie/laravel-data": "^3.0"
+    },
     "require-dev": {
-        "symfony/var-dumper": "5.4.x-dev"
+        "symfony/var-dumper": "^6.2"
     }
 }
