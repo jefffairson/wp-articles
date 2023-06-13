@@ -31,7 +31,11 @@
         "roots/acorn": "^3.1",
         "spatie/laravel-data": "^3.5"
     },
-    "require-dev": {
-        "symfony/var-dumper": "^6.2"
+    "extra": {
+        "acorn": {
+            "providers": [
+                "Jefffairson\\WPArticles\\WpArticlesProvider"
+            ]
+        }
     }
 }
