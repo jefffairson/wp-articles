@@ -1,6 +1,6 @@
 <?php
 
-namespace Jefffairson\WPArticles;
+namespace Jefffairson\WPArticles\DataObjects;
 
 use Carbon\CarbonImmutable;
 use Spatie\LaravelData\Data;
