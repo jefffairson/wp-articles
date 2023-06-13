@@ -9,6 +9,7 @@
             "Jefffairson\\WPArticles\\": "src/"
         }
     },
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Jean-François TOURNOUX",
@@ -17,6 +18,24 @@
             "role": "Developer"
         }
     ],
-    "require": {},
-    "minimum-stability": "dev"
+    "config": {
+        "platform": {
+            "php": "8.1"
+        }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "symfony/var-dumper": "^6.2"
+    },
+    "require": {
+        "roots/acorn": "^3.1",
+        "spatie/laravel-data": "^3.5"
+    },
+    "extra": {
+        "acorn": {
+            "providers": [
+                "Jefffairson\\WPArticles\\WpArticlesProvider"
+            ]
+        }
+    }
 }
