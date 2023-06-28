@@ -4,9 +4,14 @@ namespace Jefffairson\WPArticles\DataObjects;
 
 use Carbon\CarbonImmutable;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Attributes\Computed;
+use Spatie\LaravelData\Attributes\WithCast;
+use Jefffairson\WPArticles\DataObjects\Term;
 use Spatie\LaravelData\Attributes\MapInputName;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Jefffairson\WPArticles\Casters\ArticleTermsCaster;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class Article extends Data
@@ -32,6 +37,8 @@ class Article extends Data
         public string $status,
         #[MapInputName('post_type')]
         public string $type,
+        #[WithCast(ArticleTermsCaster::class), DataCollectionOf(Term::class)]
+        public DataCollection $terms,
     ) {
         $this->link = function_exists('get_permalink')
             ? get_permalink($this->id)
