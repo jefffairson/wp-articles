@@ -10,12 +10,20 @@ use Spatie\LaravelData\Attributes\DataCollectionOf;
 
 class Term extends Data
 {
+    #[Computed]
+    public string $link;
+
     public function __construct(
         #[MapInputName('term_id')]
         public int $id,
         public string $name,
         public string $slug,
+        public string $taxonomy,
         #[DataCollectionOf(Article::class)]
         public DataCollection|null $articles,
-    ) {}
+    ) {
+        $this->link = function_exists('get_term_link')
+            ? get_term_link($this->id, $this->taxonomy)
+            : 'get_term_link does no exists !!' ;
+    }
 }
