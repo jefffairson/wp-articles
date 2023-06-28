@@ -4,12 +4,16 @@ namespace Jefffairson\WPArticles\DataObjects;
 
 use Carbon\CarbonImmutable;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\Attributes\Computed;
 use Spatie\LaravelData\Attributes\MapInputName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class Article extends Data
 {
+    #[Computed]
+    public string $link;
+
     public function __construct(
         #[MapInputName('ID')]
         public int $id,
@@ -28,5 +32,9 @@ class Article extends Data
         public string $status,
         #[MapInputName('post_type')]
         public string $type,
-    ) {}
+    ) {
+        $this->link = function_exists('get_permalink')
+            ? get_permalink($this->id)
+            : 'get_permalink does no exists !!' ;
+    }
 }
