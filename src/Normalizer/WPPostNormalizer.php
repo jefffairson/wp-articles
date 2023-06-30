@@ -14,8 +14,9 @@ class WPPostNormalizer implements Normalizer
             return null;
         }
 
-        // This key is not present, force set to use caster afterwards
+        // These key are not present, force set to use caster (or other) afterwards
         $value->terms = collect();
+        $value->fields = collect();
 
         return (array) $value;
     }
