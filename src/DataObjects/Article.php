@@ -9,6 +9,7 @@ use Spatie\LaravelData\Attributes\Computed;
 use Spatie\LaravelData\Attributes\WithCast;
 use Jefffairson\WPArticles\DataObjects\Term;
 use Spatie\LaravelData\Attributes\MapInputName;
+use Jefffairson\WPArticles\Casters\FieldsCaster;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Jefffairson\WPArticles\Casters\ArticleTermsCaster;
@@ -39,6 +40,8 @@ class Article extends Data
         public string $type,
         #[WithCast(ArticleTermsCaster::class), DataCollectionOf(Term::class)]
         public DataCollection $terms,
+        #[WithCast(FieldsCaster::class)]
+        public array $fields,
     ) {
         $this->link = function_exists('get_permalink')
             ? get_permalink($this->id)
