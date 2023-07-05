@@ -5,6 +5,7 @@ namespace Jefffairson\WPArticles\DataObjects;
 use Carbon\CarbonImmutable;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
+use Jefffairson\WPArticles\Tools\AcfFields;
 use Spatie\LaravelData\Attributes\Computed;
 use Spatie\LaravelData\Attributes\WithCast;
 use Jefffairson\WPArticles\DataObjects\Term;
@@ -19,6 +20,8 @@ class Article extends Data
 {
     #[Computed]
     public string $link;
+    #[Computed]
+    public array $thumnail;
 
     public function __construct(
         #[MapInputName('ID')]
@@ -41,10 +44,13 @@ class Article extends Data
         #[WithCast(ArticleTermsCaster::class), DataCollectionOf(Term::class)]
         public DataCollection $terms,
         #[WithCast(FieldsCaster::class)]
-        public array $fields,
+        public AcfFields $fields,
     ) {
         $this->link = function_exists('get_permalink')
             ? get_permalink($this->id)
+            : 'get_permalink does no exists !!' ;
+        $this->thumbnail = function_exists('get_the_post_thumbnail')
+            ? get_the_post_thumbnail($this->id)
             : 'get_permalink does no exists !!' ;
     }
 }
