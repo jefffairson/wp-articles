@@ -1,7 +1,7 @@
 {
     "name": "jefffairson/wp-articles",
     "description": "Convert WP_Post to DTO",
-    "license": "LPGL-3.0-only",
+    "license": "MIT",
     "type": "library",
     "homepage": "https://tisseur-de-toile.fr",
     "autoload": {
