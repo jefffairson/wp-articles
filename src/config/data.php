@@ -47,6 +47,7 @@ return [
      */
     'normalizers' => [
         Jefffairson\WPArticles\Normalizer\WPPostNormalizer::class,
+        Jefffairson\WPArticles\Normalizer\WPTermNormalizer::class,
         Spatie\LaravelData\Normalizers\ModelNormalizer::class,
         // Spatie\LaravelData\Normalizers\FormRequestNormalizer::class,
         Spatie\LaravelData\Normalizers\ArrayableNormalizer::class,
