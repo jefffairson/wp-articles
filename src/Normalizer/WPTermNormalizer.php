@@ -12,6 +12,9 @@ class WPTermNormalizer implements Normalizer
             return null;
         }
 
+        // These key are not present, force set to use caster (or other) afterwards
+        $value->fields = collect();
+
         return (array) $value;
     }
 }
