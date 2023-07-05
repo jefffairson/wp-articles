@@ -13,8 +13,9 @@ class FieldsCaster implements Cast
     {
         $key = '';
         if (isset($context['term_id'])) {
-            $key = $context['term_id'] . '_' . $context['term_id'];
+            $key = $context['taxonomy'] . '_' . $context['term_id'];
         }
+
         if (isset($context['ID'])) {
             $key = $context['ID'];
         }
