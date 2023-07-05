@@ -11,9 +11,18 @@ class FieldsCaster implements Cast
 {
     public function cast(DataProperty $property, mixed $value, array $context): mixed
     {
-        $prefix = '';
-        $fields = collect(get_fields($context['ID']))
+        $key = '';
+        if (isset($context['term_id'])) {
+            $key = $context['taxonomy'] . '_' . $context['term_id'];
+        }
+
+        if (isset($context['ID'])) {
+            $key = $context['ID'];
+        }
+
+        $fields = collect(get_fields($key))
             ->reject(fn ($value) => $value === false);
+
         return new AcfFields($fields);
     }
 }
