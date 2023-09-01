@@ -21,7 +21,7 @@ class Article extends Data
     #[Computed]
     public string $link;
     #[Computed]
-    public array $thumnail;
+    public array $thumbnail;
 
     public function __construct(
         #[MapInputName('ID')]
