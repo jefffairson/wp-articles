@@ -50,7 +50,7 @@ class Article extends Data
             ? get_permalink($this->id)
             : 'get_permalink does no exists !!' ;
         $this->thumbnail = function_exists('get_the_post_thumbnail')
-            ? get_the_post_thumbnail($this->id)
-            : 'get_permalink does no exists !!' ;
+            ? []
+            : ['get_the_post_thumbnail does no exists !!'] ;
     }
 }
