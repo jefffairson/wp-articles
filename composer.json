@@ -28,7 +28,7 @@
         "symfony/var-dumper": "^6.2"
     },
     "require": {
-        "roots/acorn": "^3.1",
+        "roots/acorn": "^5.0",
         "spatie/laravel-data": "^4.0"
     },
     "extra": {
