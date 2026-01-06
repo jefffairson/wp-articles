@@ -4,7 +4,7 @@ namespace Jefffairson\WPArticles\DataObjects;
 
 use Carbon\CarbonImmutable;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
+use Illuminate\Support\Collection;
 use Jefffairson\WPArticles\Tools\AcfFields;
 use Spatie\LaravelData\Attributes\Computed;
 use Spatie\LaravelData\Attributes\WithCast;
@@ -42,7 +42,7 @@ class Article extends Data
         #[MapInputName('post_type')]
         public string $type,
         #[WithCast(ArticleTermsCaster::class), DataCollectionOf(Term::class)]
-        public DataCollection $terms,
+        public Collection $terms,
         #[WithCast(FieldsCaster::class)]
         public AcfFields $fields,
     ) {
